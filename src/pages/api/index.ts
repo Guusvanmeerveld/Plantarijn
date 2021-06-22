@@ -1,12 +1,9 @@
 import { NextApiHandler } from "next";
 
-import Store from "../../utils/store";
-import Schema from "../../models/database";
-import { join } from "path";
+import createDatabase from "utils/createDatabase";
 
 const Handler: NextApiHandler = async (req, res) => {
-	const path = join(process.cwd(), "database", "data.json");
-	const store = new Store<Schema>(path, []);
+	const store = createDatabase();
 	if (
 		process.env.TOKEN &&
 		req.headers.authorization?.includes(process.env.TOKEN)
