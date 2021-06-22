@@ -25,27 +25,29 @@ const LineChart: FC<Props> = ({ data }) => {
 
 	return (
 		<div className={classes.container}>
-			<ResponsiveLine
-				theme={{
-					background: "#121212",
-					tooltip: { container: { background: "#000" } }
-				}}
-				data={chartData}
-				xScale={{
-					type: "time",
-					format: "%Y-%m-%d",
-					precision: "minute",
-					useUTC: false
-				}}
-				// yFormat={(n) => n * 2}
+			<div className={classes.wrapper}>
+				<ResponsiveLine
+					theme={{
+						background: "#121212",
+						tooltip: { container: { background: "#000" } }
+					}}
+					data={chartData}
+					xScale={{
+						type: "time",
+						format: "%Y-%m-%d",
+						precision: "minute",
+						useUTC: false
+					}}
+					// yFormat={(n) => n * 2}
 
-				axisBottom={{
-					format: "%b %d"
-				}}
-				xFormat="time:%Y-%m-%d %H:%M"
-				useMesh={true}
-				enableSlices={false}
-			/>
+					axisBottom={{
+						format: "%b %d"
+					}}
+					xFormat="time:%Y-%m-%d %H:%M"
+					useMesh={true}
+					enableSlices={false}
+				/>
+			</div>
 		</div>
 	);
 };
