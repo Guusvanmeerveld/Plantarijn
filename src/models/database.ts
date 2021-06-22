@@ -7,4 +7,8 @@ export interface Item {
 
 type Schema = Item[];
 
+export type Props = {
+	data: Schema;
+};
+
 export default Schema;

@@ -4,24 +4,26 @@ import Title from "@components/Title";
 
 import { GetStaticProps, NextPage } from "next";
 import createDatabase from "utils/createDatabase";
-import Schema from "models/database";
-
-type Props = {
-	data: Schema;
-};
+import { Props } from "models/database";
+import Current from "@components/Current";
+import LineChart from "@components/LineChart";
 
 const Index: NextPage<Props> = ({ data }) => (
 	<>
 		<NextSeo title="Hello World" />
 		<Title />
-		{JSON.stringify(data)}
+		<Current data={data} />
+		<LineChart data={data} />
 	</>
 );
 export const getStaticProps: GetStaticProps<Props> = async () => {
-	const store = createDatabase();
+	const data = createDatabase().data;
+	// const data = genData();
+	// store.data = data;
+	// store.write();
 	return {
 		props: {
-			data: store.data
+			data
 		},
 		revalidate: 10
 	};

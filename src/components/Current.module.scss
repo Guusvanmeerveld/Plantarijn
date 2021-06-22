@@ -1,0 +1,18 @@
+.container {
+	display: flex;
+	margin: 1cm;
+}
+
+.card {
+	display: inline-block;
+	width: 400px;
+	flex: 1;
+	padding: 1cm;
+	margin: 0.4cm;
+	background-color: #131313;
+	border-radius: 10px;
+}
+
+.title {
+	font-size: larger;
+}
