@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start & node src/utils/updateFromOpenweathermap.js",
     "export": "next build && next export",
     "test-build": "tsc",
     "lint": "eslint src",
@@ -13,6 +13,7 @@
   "dependencies": {
     "@nivo/core": "^0.71.0",
     "@nivo/line": "^0.71.0",
+    "axios": "^0.21.1",
     "next": "^10.2.3",
     "next-seo": "^4.24.0",
     "react": "^17.0.2",

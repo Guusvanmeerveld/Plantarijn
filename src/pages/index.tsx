@@ -10,7 +10,7 @@ import LineChart from "@components/LineChart";
 
 const Index: NextPage<Props> = ({ data }) => (
 	<>
-		<NextSeo title="Hello World" />
+		<NextSeo title="Dashboard" />
 		<Title />
 		<Current data={data} />
 		<LineChart data={data} />

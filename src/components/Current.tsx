@@ -13,8 +13,8 @@ const Current: FC<Props> = ({ data }) => {
 				{round(last.temperature)}℃
 			</div>
 			<div className={classes.card}>
-				<h1 className={classes.title}>Humidity</h1>
-				{round(last.humidity)}℃
+				<h1 className={classes.title}>Vochtigheid</h1>
+				{round(last.humidity)}%
 			</div>
 		</div>
 	);
