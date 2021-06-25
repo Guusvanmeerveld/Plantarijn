@@ -26,14 +26,10 @@ function loop() {
 }
 const msToFullMinute = () => {
 	const date = new Date();
-	console.log(date);
-
 	date.setMinutes(new Date().getMinutes() + 1);
 	date.setSeconds(0);
 	date.setMilliseconds(0);
 	const y = date - Date.now();
-	console.log(y);
-	console.log(date);
 	return y;
 };
 setTimeout(loop, msToFullMinute());
