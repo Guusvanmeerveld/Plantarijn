@@ -4,7 +4,16 @@
 }
 
 .wrapper {
-	overflow: hidden;
+	// overflow: hidden;
 	height: 100%;
-	border-radius: 10px;
+
+	svg {
+		border-radius: 10px;
+	}
+}
+
+.tooltip {
+	padding: 7px;
+	background-color: #131313;
+	border-radius: 5px;
 }

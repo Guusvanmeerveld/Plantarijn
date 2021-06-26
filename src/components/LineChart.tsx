@@ -11,14 +11,16 @@ const LineChart: FC<Props> = ({ data }) => {
 				x: new Date(item.timestamp),
 				y: item.temperature
 			})),
-			id: "Temperatuur"
+			id: "Temperatuur",
+			color: "red"
 		},
 		{
 			data: data.map((item) => ({
 				x: new Date(item.timestamp),
 				y: item.humidity
 			})),
-			id: "Vochtigheid"
+			id: "Vochtigheid",
+			color: "hsl(183, 70%, 50%)"
 		}
 	];
 	// console.log(chartData);
@@ -29,8 +31,27 @@ const LineChart: FC<Props> = ({ data }) => {
 				<ResponsiveLine
 					theme={{
 						background: "#121212",
-						tooltip: { container: { background: "#000" } }
+						textColor: "white"
 					}}
+					colors={["#F44336", "#2196F3"]}
+					animate={false}
+					enablePoints={false}
+					curve="basis"
+					enableGridX={false}
+					enableGridY={false}
+					tooltip={({ point }) => (
+						<div
+							className={classes.tooltip}
+							style={{ backgroundColor: point.serieColor }}
+						>
+							{point.serieId}: {point.data.yFormatted}
+							{point.serieId == "Vochtigheid" ? "%" : "℃"}
+							<br></br>
+							{point.data.xFormatted}
+						</div>
+					)}
+					gridYValues={10}
+					gridXValues={10}
 					data={chartData}
 					xScale={{
 						type: "time",
@@ -38,12 +59,22 @@ const LineChart: FC<Props> = ({ data }) => {
 						precision: "minute",
 						useUTC: false
 					}}
-					// yFormat={(n) => n * 2}
-
-					axisBottom={{
-						format: "%b %d"
+					yScale={{
+						max: 100,
+						type: "linear",
+						min: 0
 					}}
-					xFormat="time:%Y-%m-%d %H:%M"
+					axisBottom={{
+						format: "%b %d",
+
+						tickSize: 5,
+						tickPadding: 5,
+						tickRotation: 0,
+						legend: "transportation",
+						legendOffset: 36,
+						legendPosition: "middle"
+					}}
+					xFormat="time:%Y-%m-%d %H:%M:%S"
 					useMesh={true}
 					enableSlices={false}
 				/>
